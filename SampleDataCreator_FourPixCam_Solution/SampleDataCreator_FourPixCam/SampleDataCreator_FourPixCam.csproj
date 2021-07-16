@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DeepLearningDataProvider">
+      <HintPath>..\..\..\DeepLearningDataProvider\DeepLearningDataProviderSolution\DeepLearningDataProvider\bin\Debug\netcoreapp3.1\DeepLearningDataProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="ImpEx">
+      <HintPath>..\..\..\ImpEx\ImpEx.Solution\ImpEx\bin\Debug\netcoreapp3.1\ImpEx.dll</HintPath>
+    </Reference>
+    <Reference Include="MatrixExtensions">
+      <HintPath>..\..\..\MatrixExtensions\MatrixExtensions_Solution\MatrixExtensions\bin\Debug\netcoreapp3.1\MatrixExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectFlattener">
+      <HintPath>..\..\..\ObjectFlattener\ObjectFlattener\bin\Debug\netcoreapp3.1\ObjectFlattener.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
