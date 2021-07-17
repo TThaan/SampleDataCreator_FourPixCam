@@ -18,7 +18,7 @@ namespace SampleDataCreator_FourPixCam
             // Save samples
 
             string fileName = Path.Combine(Path.GetTempPath(), "FourPixCamSamples");
-            fileName = await sampleFactory.SaveSamplesAsCSVAsync(fileName, true);
+            fileName = await sampleFactory.SaveSamplesAsCSVAsync(fileName, 5, true);
 
             // Load and show samples
 

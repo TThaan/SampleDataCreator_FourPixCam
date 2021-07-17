@@ -51,13 +51,13 @@ namespace SampleDataCreator_FourPixCam
         {
             return SamplesText = await ImpEx.Import.LoadAsOriginalFileTextAsync(fileName);
         }
-        public async Task<string> SaveSamplesAsCSVAsync(string fileName, bool overWriteExistingFile = false)
+        public async Task<string> SaveSamplesAsCSVAsync(string fileName, int columns, bool overWriteExistingFile = false)
         {
-            return await ImpEx.Export.SaveAsCSVAsync(SamplesList, fileName, overWriteExistingFile);
+            return await ImpEx.Export.SaveAsCSVAsync(SamplesList, fileName, columns, overWriteExistingFile);
         }
-        public async Task<string> SaveSamplesAsTSVAsync(string fileName, bool overWriteExistingFile = false)
+        public async Task<string> SaveSamplesAsTSVAsync(string fileName, int columns, bool overWriteExistingFile = false)
         {
-            return await ImpEx.Export.SaveAsTSVAsync(SamplesList, fileName, overWriteExistingFile);
+            return await ImpEx.Export.SaveAsTSVAsync(SamplesList, fileName, columns, overWriteExistingFile);
         }
 
         #region helpers for 'CreateSamplesAsync(..)'
