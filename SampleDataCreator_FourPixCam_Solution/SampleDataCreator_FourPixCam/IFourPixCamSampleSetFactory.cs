@@ -9,7 +9,7 @@ namespace SampleDataCreator_FourPixCam
         string SamplesText { get; set; }
 
         Task<List<KeyValuePair<string, float[]>>> CreateSamplesAsync(int samplesCount, float inputDistortion);
-        Task<string> LoadSamplesAsync(string fileName, bool overWriteExistingFile = false);
+        Task<string> LoadSamplesAsync(string fileName);
         Task<string> SaveSamplesAsCSVAsync(string fileName, int columns, bool overWriteExistingFile = false);
         Task<string> SaveSamplesAsTSVAsync(string fileName, int columns, bool overWriteExistingFile = false);
     }

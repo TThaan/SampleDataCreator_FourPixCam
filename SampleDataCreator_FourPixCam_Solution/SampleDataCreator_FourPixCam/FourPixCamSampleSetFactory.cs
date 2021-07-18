@@ -47,7 +47,7 @@ namespace SampleDataCreator_FourPixCam
                 return SamplesList = distortedInputs.ToList();
             });
         }
-        public async Task<string> LoadSamplesAsync(string fileName, bool overWriteExistingFile = false)
+        public async Task<string> LoadSamplesAsync(string fileName)
         {
             return SamplesText = await ImpEx.Import.LoadAsOriginalFileTextAsync(fileName);
         }
