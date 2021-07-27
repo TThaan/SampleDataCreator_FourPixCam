@@ -10,7 +10,9 @@ namespace SampleDataCreator_FourPixCam
     {
         #region fields
 
-        private enum Label { Undefined, AllBlack, AllWhite, LeftBlack, LeftWhite, SlashBlack, SlashWhite, TopBlack, TopWhite }
+        private enum Label {
+            Undefined, Undefined1, Undefined2, Undefined3, Undefined4, Undefined5, Undefined6, Undefined7, Undefined8,
+            AllBlack, AllWhite, LeftBlack, LeftWhite, SlashBlack, SlashWhite, TopBlack, TopWhite }
         private enum SimpleLabel { Undefined, FullColored, Columns, Rows, Slashs }
         private static Random rnd;
 
@@ -99,35 +101,35 @@ namespace SampleDataCreator_FourPixCam
                     { -1, 1 },
                     { 1, -1 } },
 
-                [Label.Undefined.ToString()] = new float[,] {
+                [Label.Undefined1.ToString()] = new float[,] {
                     { -1, 1 },
                     { 1, 1 } },
 
-                [Label.Undefined.ToString()] = new float[,] {
+                [Label.Undefined2.ToString()] = new float[,] {
                     { 1, -1 },
                     { 1, 1 } },
 
-                [Label.Undefined.ToString()] = new float[,] {
+                [Label.Undefined3.ToString()] = new float[,] {
                     { 1, 1 },
                     { -1, 1 } },
 
-                [Label.Undefined.ToString()] = new float[,] {
+                [Label.Undefined4.ToString()] = new float[,] {
                     { 1, 1 },
                     { 1, -1 } },
 
-                [Label.Undefined.ToString()] = new float[,] {
+                [Label.Undefined5.ToString()] = new float[,] {
                     { 1, -1 },
                     { -1, -1 } },
 
-                [Label.Undefined.ToString()] = new float[,] {
+                [Label.Undefined6.ToString()] = new float[,] {
                     { -1, 1 },
                     { -1, -1 } },
 
-                [Label.Undefined.ToString()] = new float[,] {
+                [Label.Undefined7.ToString()] = new float[,] {
                     { -1, -1 },
                     { 1, -1 } },
 
-                [Label.Undefined.ToString()] = new float[,] {
+                [Label.Undefined8.ToString()] = new float[,] {
                     { -1, -1 },
                     { -1, 1 } }
             };
