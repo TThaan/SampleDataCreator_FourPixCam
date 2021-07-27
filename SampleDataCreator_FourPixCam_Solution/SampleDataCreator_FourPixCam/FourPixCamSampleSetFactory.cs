@@ -11,6 +11,7 @@ namespace SampleDataCreator_FourPixCam
         #region fields
 
         private enum Label { Undefined, AllBlack, AllWhite, LeftBlack, LeftWhite, SlashBlack, SlashWhite, TopBlack, TopWhite }
+        private enum SimpleLabel { Undefined, FullColored, Columns, Rows, Slashs }
         private static Random rnd;
 
         #endregion
@@ -96,7 +97,39 @@ namespace SampleDataCreator_FourPixCam
 
                 [Label.SlashWhite.ToString()] = new float[,] {
                     { -1, 1 },
-                    { 1, -1 } }
+                    { 1, -1 } },
+
+                [Label.Undefined.ToString()] = new float[,] {
+                    { -1, 1 },
+                    { 1, 1 } },
+
+                [Label.Undefined.ToString()] = new float[,] {
+                    { 1, -1 },
+                    { 1, 1 } },
+
+                [Label.Undefined.ToString()] = new float[,] {
+                    { 1, 1 },
+                    { -1, 1 } },
+
+                [Label.Undefined.ToString()] = new float[,] {
+                    { 1, 1 },
+                    { 1, -1 } },
+
+                [Label.Undefined.ToString()] = new float[,] {
+                    { 1, -1 },
+                    { -1, -1 } },
+
+                [Label.Undefined.ToString()] = new float[,] {
+                    { -1, 1 },
+                    { -1, -1 } },
+
+                [Label.Undefined.ToString()] = new float[,] {
+                    { -1, -1 },
+                    { 1, -1 } },
+
+                [Label.Undefined.ToString()] = new float[,] {
+                    { -1, -1 },
+                    { -1, 1 } }
             };
         }
         /// <summary>
