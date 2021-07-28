@@ -32,7 +32,7 @@ namespace SampleDataCreator_FourPixCam
 
                 // Create 'natural' input (2x2 matrix) with values 0 or 1 only.
                 // The Keys represent the labels.
-                Dictionary<string, float[,]> idealizedInputs = GetIdealizedInputs();
+                IEnumerable<KeyValuePair<string, float[,]>> idealizedInputs = GetIdealizedInputs();
 
                 // Multiply up to 'samplesCount' inputs are reached.
                 // Since multiple identical keys are not allowed in a dictionary use IEnumerable<KeyValuePair>.
@@ -65,82 +65,68 @@ namespace SampleDataCreator_FourPixCam
 
         #region helpers for 'CreateSamplesAsync(..)'
 
-        static Dictionary<string, float[,]> GetIdealizedInputs()
+        static IEnumerable<KeyValuePair<string, float[,]>> GetIdealizedInputs()
         {
-            return new Dictionary<string, float[,]>
+            return new List<KeyValuePair<string, float[,]>>
             {
-                [Label.AllBlack.ToString()] = new float[,] {
+                new KeyValuePair<string, float[,]> (Label.AllBlack.ToString(), 
+                    new float[,] {
                     { -1, -1 },
-                    { -1, -1 } },
-
-                [Label.AllWhite.ToString()] = new float[,] {
+                    { -1, -1 } }),
+                new KeyValuePair<string, float[,]> (Label.AllWhite.ToString(), new float[,] {
                     { 1, 1 },
-                    { 1, 1 } },
-
-                [Label.TopBlack.ToString()] = new float[,] {
+                    { 1, 1 } }),
+                new KeyValuePair<string, float[,]> (Label.TopBlack.ToString(), new float[,] {
                     { -1, -1 },
-                    { 1, 1 } },
-
-                [Label.TopWhite.ToString()] = new float[,] {
+                    { 1, 1 } }),
+                new KeyValuePair<string, float[,]> (Label.TopWhite.ToString(), new float[,] {
                     { 1, 1 },
-                    { -1, -1 } },
-
-                [Label.LeftBlack.ToString()] = new float[,] {
+                    { -1, -1 } }),
+                new KeyValuePair<string, float[,]> (Label.LeftBlack.ToString(), new float[,] {
                     { -1, 1 },
-                    { -1, 1 } },
-
-                [Label.LeftWhite.ToString()] = new float[,] {
+                    { -1, 1 } }),
+                new KeyValuePair<string, float[,]> (Label.LeftWhite.ToString(), new float[,] {
                     { 1, -1 },
-                    { 1, -1 } },
-
-                [Label.SlashBlack.ToString()] = new float[,] {
+                    { 1, -1 } }),
+                new KeyValuePair<string, float[,]> (Label.SlashBlack.ToString(), new float[,] {
                     { 1, -1 },
-                    { -1, 1 } },
-
-                [Label.SlashWhite.ToString()] = new float[,] {
+                    { -1, 1 } }),
+                new KeyValuePair<string, float[,]> (Label.SlashWhite.ToString(), new float[,] {
                     { -1, 1 },
-                    { 1, -1 } },
-
-                [Label.Undefined1.ToString()] = new float[,] {
+                    { 1, -1 } }),
+                new KeyValuePair<string, float[,]> (Label.Undefined.ToString(), new float[,] {
                     { -1, 1 },
-                    { 1, 1 } },
-
-                [Label.Undefined2.ToString()] = new float[,] {
+                    { 1, 1 } }),
+                new KeyValuePair<string, float[,]> (Label.Undefined.ToString(), new float[,] {
                     { 1, -1 },
-                    { 1, 1 } },
-
-                [Label.Undefined3.ToString()] = new float[,] {
+                    { 1, 1 } }),
+                new KeyValuePair<string, float[,]> (Label.Undefined.ToString(), new float[,] {
                     { 1, 1 },
-                    { -1, 1 } },
-
-                [Label.Undefined4.ToString()] = new float[,] {
+                    { -1, 1 } }),
+                new KeyValuePair<string, float[,]> (Label.Undefined.ToString(), new float[,] {
                     { 1, 1 },
-                    { 1, -1 } },
-
-                [Label.Undefined5.ToString()] = new float[,] {
+                    { 1, -1 } }),
+                new KeyValuePair<string, float[,]> (Label.Undefined.ToString(), new float[,] {
                     { 1, -1 },
-                    { -1, -1 } },
-
-                [Label.Undefined6.ToString()] = new float[,] {
+                    { -1, -1 } }),
+                new KeyValuePair<string, float[,]> (Label.Undefined.ToString(), new float[,] {
                     { -1, 1 },
-                    { -1, -1 } },
-
-                [Label.Undefined7.ToString()] = new float[,] {
+                    { -1, -1 } }),
+                new KeyValuePair<string, float[,]> (Label.Undefined.ToString(), new float[,] {
                     { -1, -1 },
-                    { 1, -1 } },
-
-                [Label.Undefined8.ToString()] = new float[,] {
+                    { 1, -1 } }),
+                new KeyValuePair<string, float[,]> (Label.Undefined.ToString(), new float[,] {
                     { -1, -1 },
-                    { -1, 1 } }
+                    { -1, 1 } })
             };
         }
         /// <summary>
         /// Flattening two-dimensional raw input into one dimensional input.
         /// </summary>
-        static IEnumerable<KeyValuePair<string, float[,]>> GetMultipliedInput(Dictionary<string, float[,]> data, int samplesCount)
+        static IEnumerable<KeyValuePair<string, float[,]>> GetMultipliedInput(IEnumerable<KeyValuePair<string, float[,]>> data, int samplesCount)
         {
             IEnumerable<KeyValuePair<string, float[,]>> result = new List<KeyValuePair<string, float[,]>>();
-            int multiplicationFactor = (int)Math.Round((double)samplesCount / data.Values.Count, 0); // Check: idealizedInputs.Values.Count = 8?
+            int multiplicationFactor = (int)Math.Round((double)samplesCount / data.Count(), 0); // Check: idealizedInputs.Values.Count = 8?
 
             for (int i = 0; i < multiplicationFactor; i++)
             {
